@@ -1,0 +1,26 @@
+usePackage <- function(p)
+{
+  if (!is.element(p, installed.packages()[,1]))
+    install.packages(p, dep = TRUE)
+  require(p, character.only = TRUE)
+}
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("limma")
+BiocManager::install("edgeR")
+
+usePackage("rcpp")
+usePackage("httr")
+usePackage("XML")
+usePackage("rvest")
+usePackage("broom")
+usePackage("httpuv")
+usePackage("formatR")
+usePackage("tinytex")
+usePackage("tidyverse")
+usePackage("dplyr")
+usePackage("plyr")
+usePackage("reshape2")
+usePackage("knitr")
+usePackage("rmarkdown")

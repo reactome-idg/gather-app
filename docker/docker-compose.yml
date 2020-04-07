@@ -1,0 +1,34 @@
+version: '3'
+services:
+
+  tcga:
+    build:
+      context: .
+    volumes:
+      - /opt/gather-app/data/curated:/opt/data/curated
+      - /opt/gather-app/data/TCGA:/opt/data/TCGA
+    environment:
+      CONTAINER_ROLE: tcga
+    entrypoint: ["/bin/bash"]
+
+
+  gtex:
+    build:
+      context: .
+    volumes:
+      - /opt/gather-app/data/curated:/opt/data/curated
+      - /opt/gather-app/data/GTEx:/opt/data/GTEx
+    environment:
+      CONTAINER_ROLE: gtex
+    entrypoint: ["/bin/bash"]
+
+
+  research:
+    build:
+      context: .
+    volumes:
+      - /opt/gather-app/data:/opt/data
+      - /opt/gather-app/scripts:/opt/scripts
+    environment:
+      CONTAINER_ROLE: research
+    entrypoint: ["/bin/bash"]
